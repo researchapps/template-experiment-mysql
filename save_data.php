@@ -23,6 +23,11 @@ function mysql_insert($table, $inserts) {
 
 $to_insert = array();
 
+// Is there data?
+if (!$to_insert['json']) {
+    die('No data to insert!');
+}
+
 // Get the data object from json
 $to_insert['json'] = $_POST['json'];
 
