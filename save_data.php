@@ -6,6 +6,10 @@
 // Tangi75: Adapted from http://docs.jspsych.org/features/data/#storing-data-permanently-in-a-mysql-database
 // -> store the whole json data into a single field instead of splitting it
 
+// @vsoch adding call to prevent execution of script directly
+define('AJAX_REQUEST', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
+if(!AJAX_REQUEST) {die();}
+
 include('database_connect.php'); # TODO : this is where you should define your database connection parameters!
 
 function mysql_insert($table, $inserts) {
