@@ -20,13 +20,13 @@ function mysql_insert($table, $inserts) {
 
 $to_insert = array();
 
+// Get the data object from json
+$to_insert['json'] = $_POST['json'];
+
 // Is there data?
 if (!$to_insert['json']) {
     die('No data to insert!');
 }
-
-// Get the data object from json
-$to_insert['json'] = $_POST['json'];
 
 // get the optional data
 $opt_data = $_POST['opt_data'];
